@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LibraryData
 {
-    interface ICheckout
+    public interface ICheckout
     {
         IEnumerable<Checkout> GetAll();
         Checkout GetById(int checkoutId);

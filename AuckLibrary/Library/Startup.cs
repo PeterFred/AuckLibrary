@@ -27,6 +27,9 @@ namespace Library
             //Injects the LibraryAssetServices into the LibraryWeb so that the LibraryWeb 
             //Can access and modify the db through the LibraryServices module
             services.AddScoped<ILibraryAsset, LibraryAssetService>();
+
+
+            services.AddScoped<ICheckout, CheckoutService>();
             
             //Connects the connection string for the sql db
             // > pulled from LibraryContext, in turn pulled from appsettings.json
