@@ -32,7 +32,7 @@ namespace Library.Controllers
                     Title = result.Title,
                 });
 
-            var model = new AssetIndexModel()
+            AssetIndexModel model = new AssetIndexModel()
             {
                 Assets = listingResult
             };
@@ -49,7 +49,7 @@ namespace Library.Controllers
             //Populate the AssetDetail model with:
             // LibraryAsset properties OR
             // services from the _assets ILibrary service
-            AssetDetailModel model = new AssetDetailModel
+            AssetDetailModel model = new AssetDetailModel()
             {
                 AssetId = id,
                 Title = asset.Title,
