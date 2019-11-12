@@ -14,7 +14,7 @@ namespace LibraryData.Models
         public string Name { get; set; }
 
         [Required]
-        public string Adress { get; set; }
+        public string Address { get; set; }
 
         [Required]
         public string Telephone { get; set; }

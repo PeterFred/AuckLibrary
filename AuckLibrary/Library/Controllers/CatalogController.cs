@@ -13,6 +13,8 @@ namespace Library.Controllers
             _assets = assets;
         }
 
+        //Controller uses the service set-up (LibraryAssetService) to select into the particular
+        //viewModel (AssetIndexListingModel -> AssetIndexModel) to be returned to be rendered
         public IActionResult Index()
         {
             var assetModels = _assets.GetAll();

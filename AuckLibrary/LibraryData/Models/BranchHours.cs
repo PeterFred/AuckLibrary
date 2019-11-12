@@ -14,7 +14,7 @@ namespace LibraryData.Models
         public int DayOfWeek { get; set; }
 
         [Range(0, 23)]
-        public int OpentTime { get; set; }
+        public int OpenTime { get; set; }
 
         [Range(0, 23)]
         public int CloseTime { get; set; }
