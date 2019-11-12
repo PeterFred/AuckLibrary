@@ -1,15 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using LibraryData;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
+using LibraryServices;
 
 namespace Library
 {
@@ -26,7 +22,14 @@ namespace Library
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+            services.AddSingleton(Configuration);
+            
+            //Injects the LibraryAssetServices into the LibraryWeb so that the LibraryWeb 
+            //Can access and modify the db through the LibraryServices module
+            services.AddScoped<ILibraryAsset, LibraryAssetService>();
+            
+            //Connects the connection string for the sql db
+            // > pulled from LibraryContext, in turn pulled from appsettings.json
             services.AddDbContext<LibraryContext>(options => 
                         options.UseSqlServer(Configuration.GetConnectionString("LibraryConnection")));
         }
