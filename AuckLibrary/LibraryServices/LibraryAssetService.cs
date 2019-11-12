@@ -7,6 +7,11 @@ using System.Linq;
 
 namespace LibraryServices
 {
+    /**
+     * LibraryAssestService links the db objects (LibraryContext)
+     * with the front end (return calls)
+     */
+
     public class LibraryAssetService : ILibraryAsset
     {
         //db context object

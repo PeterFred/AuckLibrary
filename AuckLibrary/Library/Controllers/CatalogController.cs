@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using Library.Models.Catalog;
+using LibraryData.Models;
 
 namespace Library.Controllers
 {
@@ -17,6 +18,7 @@ namespace Library.Controllers
         //viewModel (AssetIndexListingModel -> AssetIndexModel) to be returned to be rendered
         public IActionResult Index()
         {
+            
             var assetModels = _assets.GetAll();
             var listingResult = assetModels
                 .Select(result => new AssetIndexListingModel
@@ -34,6 +36,35 @@ namespace Library.Controllers
                 Assets = listingResult
             };
             return View(model);
+        }
+
+        //Returns the details for a selected asset
+       public IActionResult Detail(int id)
+        {
+            //Selects the required asset
+            LibraryAsset asset = _assets.GetById(id);
+            
+            //Creates the ViewModel
+            //Populate the AssetDetail model with:
+            // LibraryAsset properties OR
+            // services from the _assets ILibrary service
+            AssetDetailModel model = new AssetDetailModel
+            {
+                AssetId = id,
+                Title = asset.Title,
+                Year = asset.Year,
+                Status = asset.Status.Name,
+                Cost = asset.Cost,
+                ImageUrl = asset.ImageUrl,
+                AuthorOrDirector = _assets.GetAuthorOrDirector(id),
+                CurrentLocation = _assets.GetCurrentLocation(id).Name,
+                Type = _assets.GetType(id),
+                DeweyCallNumber = _assets.GetDeweyIndex(id),
+                ISBN = _assets.GetIsbn(id),
+            };
+
+            return View(model);
+
         }
     }
 }

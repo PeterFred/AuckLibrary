@@ -13,12 +13,12 @@ namespace LibraryData.Models
         public string Title { get; set; }
 
         [Required]
-        public int year { get; set; }
+        public int Year { get; set; }
 
         [Required]
         public Status Status { get; set; }
 
-        public decimal cost { get; set; }
+        public decimal Cost { get; set; }
 
         public string ImageUrl { get; set; }
 
