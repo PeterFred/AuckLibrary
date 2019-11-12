@@ -1,0 +1,5 @@
+C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\LibraryData\bin\Debug\netcoreapp3.0\LibraryData.deps.json
+C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\LibraryData\bin\Debug\netcoreapp3.0\LibraryData.dll
+C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\LibraryData\obj\Debug\netcoreapp3.0\LibraryData.csprojAssemblyReference.cache
+C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\LibraryData\obj\Debug\netcoreapp3.0\LibraryData.AssemblyInfoInputs.cache
+C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\LibraryData\obj\Debug\netcoreapp3.0\LibraryData.AssemblyInfo.cs
