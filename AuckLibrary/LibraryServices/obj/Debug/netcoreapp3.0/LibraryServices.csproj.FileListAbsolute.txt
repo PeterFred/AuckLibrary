@@ -1,0 +1,11 @@
+C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\LibraryServices\bin\Debug\netcoreapp3.0\LibraryServices.deps.json
+C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\LibraryServices\bin\Debug\netcoreapp3.0\LibraryServices.dll
+C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\LibraryServices\bin\Debug\netcoreapp3.0\LibraryServices.pdb
+C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\LibraryServices\bin\Debug\netcoreapp3.0\LibraryData.dll
+C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\LibraryServices\bin\Debug\netcoreapp3.0\LibraryData.pdb
+C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\LibraryServices\obj\Debug\netcoreapp3.0\LibraryServices.csprojAssemblyReference.cache
+C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\LibraryServices\obj\Debug\netcoreapp3.0\LibraryServices.AssemblyInfoInputs.cache
+C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\LibraryServices\obj\Debug\netcoreapp3.0\LibraryServices.AssemblyInfo.cs
+C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\LibraryServices\obj\Debug\netcoreapp3.0\LibraryServices.csproj.CopyComplete
+C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\LibraryServices\obj\Debug\netcoreapp3.0\LibraryServices.dll
+C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\LibraryServices\obj\Debug\netcoreapp3.0\LibraryServices.pdb
