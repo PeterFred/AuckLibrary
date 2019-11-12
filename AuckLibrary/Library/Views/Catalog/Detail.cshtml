@@ -1,0 +1,66 @@
+﻿@model Library.Models.Catalog.AssetDetailModel
+
+<div class="container">
+    <div class="page-header clearfix detailHeading">
+        <h2 class="text-muted">View Library Item</h2>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <img class="detailImage" src="@Model.ImageUrl" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div>
+                <p id="itemTitle">@Model.Title</p>
+                <p id="itemAuthor">@Model.AuthorOrDirector</p>
+                <p id="itemStatus">@Model.Status</p>
+                <p id="itemType">@Model.Type</p>
+                <p id="itemLocation">@Model.CurrentLocation</p>
+
+
+                <!-- If the item is checked out, the user will have the option to check in or hold the item
+                Otherwise if the item is available, a check out button is displayed, the user can check it out-->
+                @if (Model.Status == "Checked Out")
+                {
+                    <p id="itemPatron">Check Out By: @Model.PatronName</p>
+                    <p><a class="btn btn-lg btn-success" role="button" asp-controller="catalog" asp-action="CheckIn" asp-route-id="@Model.AssetId">Check In</a></p>
+                    <p><a class="btn btn-lg btn-warning" role="button" asp-controller="catalog" asp-action="Hold" asp-route-id="@Model.AssetId">Hold</a></p>
+                }
+
+                @if (Model.Status == "Available")
+                {
+                    //If available, a btn will display. If clicked, the btn will call the catalog controller, call the 'Checkout' action, and pass in the AssetId
+                    <p><a class="btn btn-lg btn-info" role="button" asp-controller="catalog" asp-action="Checkout" asp-route-id="@Model.AssetId">Check Out</a></p>
+                }
+
+                @if (Model.Status == "Lost")
+                {
+                    //If lost, a btn will display to show found. If clicked, the btn will call the catalog controller, call the 'MarkFound' action, and pass in the AssetId
+                    <p><a class="btn btn-lg btn-danger" role="button" asp-controller="catalog" asp-action="MarkFound" asp-route-id="@Model.AssetId">Mark Found</a></p>
+                }
+
+            </div>
+
+            <div class="col-md-4">
+                <table>
+                    <tr>
+                        <td class="itemLabel">ISBN: </td>
+                        <td class="item-value">@Model.ISBN</td>
+                    </tr>
+                    <tr>
+                        <td class="itemLabel">Call Number: </td>
+                        <td class="item-value">@Model.DeweyCallNumber</td>
+                    </tr>
+                    <tr>
+                        <td class="itemLabel">Replacement Cost: </td>
+                        <td class="item-value">@Model.Cost</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

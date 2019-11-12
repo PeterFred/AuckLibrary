@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using Library.Models.Catalog;
 using LibraryData.Models;
+using System.Collections.Generic;
 
 namespace Library.Controllers
 {
@@ -19,8 +20,8 @@ namespace Library.Controllers
         public IActionResult Index()
         {
             
-            var assetModels = _assets.GetAll();
-            var listingResult = assetModels
+            IEnumerable<LibraryAsset> assetModels = _assets.GetAll();
+            IEnumerable<AssetIndexListingModel> listingResult = assetModels
                 .Select(result => new AssetIndexListingModel
                 {
                     Id= result.Id,
