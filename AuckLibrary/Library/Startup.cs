@@ -27,7 +27,8 @@ namespace Library
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<LibraryContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LibaryConnection")));
+            services.AddDbContext<LibraryContext>(options => 
+                        options.UseSqlServer(Configuration.GetConnectionString("LibraryConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
