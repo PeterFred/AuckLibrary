@@ -12,7 +12,6 @@ C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\bin\Debug\ne
 C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\netcoreapp3.0\Library.csprojAssemblyReference.cache
 C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\netcoreapp3.0\staticwebassets\Library.StaticWebAssets.Manifest.cache
 C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\netcoreapp3.0\staticwebassets\Library.StaticWebAssets.xml
-C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\netcoreapp3.0\Library.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\netcoreapp3.0\Library.RazorAssemblyInfo.cache
 C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\netcoreapp3.0\Library.RazorAssemblyInfo.cs
 C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\netcoreapp3.0\Library.AssemblyInfoInputs.cache
@@ -33,3 +32,5 @@ C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\ne
 C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\netcoreapp3.0\Library.dll
 C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\netcoreapp3.0\Library.pdb
 C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\netcoreapp3.0\Library.csproj.CopyComplete
+C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Abstractions.dll
