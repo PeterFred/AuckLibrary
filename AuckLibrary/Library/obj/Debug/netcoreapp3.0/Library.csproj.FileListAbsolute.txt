@@ -56,3 +56,4 @@ C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\ne
 C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\netcoreapp3.0\Razor\Views\Catalog\Index.cshtml.g.cs
 C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\bin\Debug\netcoreapp3.0\LibraryServices.dll
 C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\bin\Debug\netcoreapp3.0\LibraryServices.pdb
+C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\netcoreapp3.0\Razor\Views\Catalog\Detail.cshtml.g.cs
