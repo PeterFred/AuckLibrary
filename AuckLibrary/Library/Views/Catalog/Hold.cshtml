@@ -1,5 +1,5 @@
 ﻿
-@model Library.Models.Checkout.CheckoutModel
+@model Library.Models.CheckoutModels.CheckoutModel
 
 @section Scripts{
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
@@ -27,16 +27,18 @@
             @*you could also use tag helpers.*@
             <div class="col-md-9">
                 <p>There are currently @Model.HoldCount holds in the queue for this item.</p>
+                @*Below is a razor syntax form*@
                 @*this is an html helper - it creates an object that implements idisposable*@
                 @using (Html.BeginForm("PlaceHold", "Catalog", FormMethod.Post))
                 {
-                    @Html.HiddenFor(a => a.AssetId)
+                    @Html.HiddenFor(a => a.AssetId) @*Required By "PlaceHold method"*@
                     <div>
                         Please insert a Library Card ID.
-                        @Html.TextBoxFor(a => a.LibraryCardId)
+                        @Html.TextBoxFor(a => a.LibraryCardId) @*Text box will display*@
                         @*write out a text box and set attributes according to info in the model*@
                     </div>
                     <div>
+                        <!--Below button will Post the LibraryCardId to PlaceHold method in controller -->
                         <button type="submit" class="btn btn-info btn-lg">Place Hold</button>
                     </div>
                 }

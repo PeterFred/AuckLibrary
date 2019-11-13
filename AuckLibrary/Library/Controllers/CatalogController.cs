@@ -4,7 +4,7 @@ using System.Linq;
 using Library.Models.Catalog;
 using LibraryData.Models;
 using System.Collections.Generic;
-using Library.Models.Checkout;
+using Library.Models.CheckoutModels;
 
 namespace Library.Controllers
 {
