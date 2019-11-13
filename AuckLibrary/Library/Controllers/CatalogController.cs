@@ -4,6 +4,7 @@ using System.Linq;
 using Library.Models.Catalog;
 using LibraryData.Models;
 using System.Collections.Generic;
+using Library.Models.Checkout;
 
 namespace Library.Controllers
 {
@@ -81,6 +82,23 @@ namespace Library.Controllers
 
             return View(model);
 
+        }
+
+        public IActionResult Checkout(int id)
+        {
+            LibraryAsset asset = _assets.GetById(id);
+
+            var model = new CheckoutModel
+            {
+                LibraryCardId = "",
+                Title = asset.Title,
+                AssetId = id,
+                ImageUrl = asset.ImageUrl,
+                IsChecked = _checkouts.IsCheckedOut(id)
+
+            };
+
+            return View(model);
         }
     }
 }
