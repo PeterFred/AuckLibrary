@@ -100,5 +100,89 @@ namespace Library.Controllers
 
             return View(model);
         }
+
+        public IActionResult Detail(int id)
+        {
+            //Selects the required asset
+            LibraryAsset asset = _assets.GetById(id);
+
+            var currentHolds = _checkouts.GetCurrentHolds(id)
+                .Select(a => new AssetHoldModel
+                {
+                    HoldPlaced = _checkouts.GetCurrentHoldPlaced(a.Id).ToString("d"),
+                    PatronName = _checkouts.GetCurrentHoldPatronName(a.Id)
+                });
+
+            //Creates the ViewModel
+            //Populate the AssetDetail model with:
+            // LibraryAsset properties OR
+            // services from the _assets ILibrary service
+            AssetDetailModel model = new AssetDetailModel()
+            {
+                AssetId = id,
+                Title = asset.Title,
+                Year = asset.Year,
+                Status = asset.Status.Name,
+                Cost = asset.Cost,
+                ImageUrl = asset.ImageUrl,
+                AuthorOrDirector = _assets.GetAuthorOrDirector(id),
+                CurrentLocation = _assets.GetCurrentLocation(id).Name,
+                Type = _assets.GetType(id),
+                DeweyCallNumber = _assets.GetDeweyIndex(id),
+                ISBN = _assets.GetIsbn(id),
+                CheckoutHistory = _checkouts.GetCheckoutHistory(id),
+                LatestCheckOut = _checkouts.GetLatestCheckout(id),
+                PatronName = _checkouts.GetCurrentCheckoutPatron(id),
+                CurrentHolds = currentHolds
+
+            };
+
+            return View(model);
+
+        }
+
+        public IActionResult Hold(int id)
+        {
+            LibraryAsset asset = _assets.GetById(id);
+
+            var model = new CheckoutModel
+            {
+                LibraryCardId = "",
+                Title = asset.Title,
+                AssetId = id,
+                ImageUrl = asset.ImageUrl,
+                IsChecked = _checkouts.IsCheckedOut(id),
+                HoldCount = _checkouts.GetCurrentHolds(id).Count()
+            };
+
+            return View(model);
+        }
+
+        //As this is coming from a form use httpPost, and then this method will only support httpPost
+        [HttpPost]
+        public IActionResult PlaceCheckout(int assetId, int libraryCardId)
+        {
+            _checkouts.CheckInItem(assetId, libraryCardId);
+            return RedirectToAction("Detail", new {id = assetId });
+        }
+
+        [HttpPost]
+        public IActionResult PlaceHold(int assetId, int libraryCardId)
+        {
+            _checkouts.CheckInItem(assetId, libraryCardId);
+            return RedirectToAction("Detail", new { id = assetId });
+        }
+
+        public IActionResult MarkLost(int assetId)
+        {
+            _checkouts.MarkLost(assetId);
+            return RedirectToAction("Detail", new { id = assetId });
+        }
+
+        public IActionResult MarkFOund(int assetId)
+        {
+            _checkouts.MarkLost(assetId);
+            return RedirectToAction("Detail", new { id = assetId });
+        }
     }
 }
