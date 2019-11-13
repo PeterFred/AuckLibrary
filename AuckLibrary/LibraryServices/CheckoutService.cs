@@ -17,7 +17,7 @@ namespace LibraryServices
             _context = context;
         }
 
-        public void AddChecout(Checkout checkout)
+        public void Add(Checkout checkout)
         {
             _context.Add(checkout);
             _context.SaveChanges();
@@ -133,7 +133,7 @@ namespace LibraryServices
             return GetAll().FirstOrDefault(checkout => checkout.Id == checkoutId);
         }
 
-        public IEnumerable<CheckoutHistory> GetCheckoutHistoriy(int id)
+        public IEnumerable<CheckoutHistory> GetCheckoutHistory(int id)
         {
             return _context.CheckoutHistories
                 .Include(h => h.LibraryAsset)
@@ -271,6 +271,30 @@ namespace LibraryServices
 
             _context.Add(hold);
             _context.SaveChanges();
+        }
+
+        public string GetCurrentCheckoutPatron(int assetId)
+        {
+            Checkout checkout = GetCheckoutByAssetId(assetId);
+            if (checkout == null)
+            {
+                return "";
+            }
+            var cardId = checkout.LibraryCard.Id;
+
+            var patron = _context.Patrons
+                .Include(p => p.LibraryCard)
+                .FirstOrDefault(p => p.LibraryCard.Id == cardId);
+            return patron.FirstName + " " + patron.LastName;
+            
+        }
+
+        private Checkout GetCheckoutByAssetId(int assetId)
+        {
+            return _context.Checkouts
+                .Include(co => co.LibraryAsset)
+                .Include(co => co.LibraryCard)
+                .FirstOrDefault(co => co.LibraryAsset.Id == assetId);
         }
     }
 }

@@ -1,25 +1,26 @@
 ﻿using LibraryData.Models;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace LibraryData
 {
     public interface ICheckout
     {
+        void Add(Checkout newCheckout);
+
         IEnumerable<Checkout> GetAll();
+        IEnumerable<CheckoutHistory> GetCheckoutHistory(int id);
+        IEnumerable<Hold> GetCurrentHolds(int id);
+
         Checkout GetById(int checkoutId);
-        void AddChecout(Checkout checkout);
+        Checkout GetLatestCheckout(int assetId);
+        string GetCurrentHoldPatronName(int id);
+        string GetCurrentCheckoutPatron(int assetId);
+        DateTime GetCurrentHoldPlaced(int id);
+
         void CheckoutItem(int assetId, int libraryCardId);
         void CheckInItem(int assetId, int libraryCardId);
-        IEnumerable<CheckoutHistory> GetCheckoutHistoriy(int id);
-
         void PlaceHold(int assetId, int libraryCardId);
-        string GetCurrentHoldPatronName(int id);
-        DateTime GetCurrentHoldPlaced(int id);
-        IEnumerable<Hold> GetCurrentHolds(int id);
-        Checkout GetLatestCheckout(int assetId);
-
         void MarkLost(int assetId);
         void MarkFound(int assetId);
     }
