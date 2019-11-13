@@ -101,45 +101,6 @@ namespace Library.Controllers
             return View(model);
         }
 
-        public IActionResult Detail(int id)
-        {
-            //Selects the required asset
-            LibraryAsset asset = _assets.GetById(id);
-
-            var currentHolds = _checkouts.GetCurrentHolds(id)
-                .Select(a => new AssetHoldModel
-                {
-                    HoldPlaced = _checkouts.GetCurrentHoldPlaced(a.Id).ToString("d"),
-                    PatronName = _checkouts.GetCurrentHoldPatronName(a.Id)
-                });
-
-            //Creates the ViewModel
-            //Populate the AssetDetail model with:
-            // LibraryAsset properties OR
-            // services from the _assets ILibrary service
-            AssetDetailModel model = new AssetDetailModel()
-            {
-                AssetId = id,
-                Title = asset.Title,
-                Year = asset.Year,
-                Status = asset.Status.Name,
-                Cost = asset.Cost,
-                ImageUrl = asset.ImageUrl,
-                AuthorOrDirector = _assets.GetAuthorOrDirector(id),
-                CurrentLocation = _assets.GetCurrentLocation(id).Name,
-                Type = _assets.GetType(id),
-                DeweyCallNumber = _assets.GetDeweyIndex(id),
-                ISBN = _assets.GetIsbn(id),
-                CheckoutHistory = _checkouts.GetCheckoutHistory(id),
-                LatestCheckOut = _checkouts.GetLatestCheckout(id),
-                PatronName = _checkouts.GetCurrentCheckoutPatron(id),
-                CurrentHolds = currentHolds
-
-            };
-
-            return View(model);
-
-        }
 
         public IActionResult Hold(int id)
         {
@@ -179,7 +140,7 @@ namespace Library.Controllers
             return RedirectToAction("Detail", new { id = assetId });
         }
 
-        public IActionResult MarkFOund(int assetId)
+        public IActionResult MarkFound(int assetId)
         {
             _checkouts.MarkLost(assetId);
             return RedirectToAction("Detail", new { id = assetId });
