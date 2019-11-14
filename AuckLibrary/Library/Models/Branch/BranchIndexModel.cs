@@ -8,6 +8,6 @@ namespace Library.Models.Branch
     public class BranchIndexModel
     {
 
-        public IEnumerable<BranchIndexModel> Branches { get; set; }
+        public IEnumerable<BranchDetailModel> Branches { get; set; }
     }
 }
