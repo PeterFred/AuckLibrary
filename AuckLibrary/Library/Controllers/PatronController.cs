@@ -54,7 +54,9 @@ namespace Library.Controllers
                 LibraryCardId = patron.LibraryCard.Id,
                 Telephone = patron.TelephoneNumber,
                 AssetsCheckedOut = _patron.GetCheckouts(id).ToList() ?? new List<Checkout>(),
-                CheckoutHistory = _patron.GetCheckoutHistory(id)
+                CheckoutHistory = _patron.GetCheckoutHistory(id),
+                Holds = _patron.GetHolds(id)
+                
 
             };
             return View(model);

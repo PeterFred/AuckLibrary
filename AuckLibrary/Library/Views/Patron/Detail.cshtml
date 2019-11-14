@@ -72,7 +72,7 @@
 
             <div class="col-md-4">
                 <h4>Assets Currently On Hold</h4>
-               @* if (@Model.Holds.Any())
+                @if (@Model.Holds.Any())
                 {
                     <div id="patronHolds">
                         <ul>
@@ -86,7 +86,7 @@
                 else
                 {
                     <div>No items on hold.</div>
-                }*@
+                }
             </div>
         </div>
     </div>
