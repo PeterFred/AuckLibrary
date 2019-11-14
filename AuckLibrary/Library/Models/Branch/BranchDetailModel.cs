@@ -12,7 +12,7 @@ namespace Library.Models.Branch
         public string Name { get; set; }
         public string OpenDate { get; set; }
         public string Telephone { get; set; }
-        public string Desciption { get; set; }
+        public string Description { get; set; }
         public string ImageUrl { get; set; }
         public bool IsOpen { get; set; }
         public int NumberOfPatrons { get; set; }

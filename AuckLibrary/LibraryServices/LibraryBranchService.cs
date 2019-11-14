@@ -34,6 +34,11 @@ namespace LibraryServices
                 .Include(l => l.Patrons);
         }
 
+        public int GetAssetCount(int branchId)
+        {
+            return Get(branchId).LibraryAssets.Count();
+        }
+
         public IEnumerable<LibraryAsset> GetAssets(int branchId)
         {
             return _context.LibraryBranches
@@ -41,11 +46,22 @@ namespace LibraryServices
                 .FirstOrDefault(b => b.Id == branchId).LibraryAssets;
         }
 
+        public decimal GetAssetsValue(int id)
+        {
+            var assetsValue = GetAssets(id).Select(a => a.Cost);
+            return assetsValue.Sum();
+        }
+
         //Use dataHelper service to return a string of branch hours
         public IEnumerable<string> GetBranchHours(int branchId)
         {
             var hours = _context.BranchHours.Where(h => h.Branch.Id == branchId);
             return DataHelpers.HumanizeBusHours(hours);
+        }
+
+        public int GetPatronCount(int branchId)
+        {
+            return Get(branchId).Patrons.Count();
         }
 
         public IEnumerable<Patron> GetPatrons(int branchId)
