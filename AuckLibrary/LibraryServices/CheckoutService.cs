@@ -23,7 +23,7 @@ namespace LibraryServices
             _context.SaveChanges();
         }
 
-        public void CheckInItem(int assetId, int libraryCardId)
+        public void CheckInItem(int assetId)
         {
             DateTime now = DateTime.Now;
             LibraryAsset item = _context.LibraryAssets.FirstOrDefault(a => a.Id == assetId);
@@ -49,10 +49,11 @@ namespace LibraryServices
             {
                 CheckoutToEarliestHold(assetId, currentHolds);
             }
-
-            UpdateAssetStatus(assetId, "Available");
-            _context.SaveChanges();
-
+            else
+            {
+                UpdateAssetStatus(assetId, "Available");
+                _context.SaveChanges();
+            }
         }
 
         private void CheckoutToEarliestHold(int assetId, IQueryable<Hold> currentHolds)
@@ -252,14 +253,18 @@ namespace LibraryServices
             DateTime now = DateTime.Now;
 
             var asset = _context.LibraryAssets
+                .Include(a => a.Status)
                 .FirstOrDefault(a => a.Id == assetId);
 
             var card = _context.LibraryCards
                 .FirstOrDefault(card => card.Id == libraryCardId);
+            
+            _context.Update(asset);
 
             if (asset.Status.Name == "Available")
             {
-                UpdateAssetStatus(assetId, "On Hold");
+                //UpdateAssetStatus(assetId, "On Hold");
+                asset.Status = _context.Statuses.FirstOrDefault(a => a.Name == "On Hold");
             }
 
             var hold = new Hold

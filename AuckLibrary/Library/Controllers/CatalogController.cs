@@ -101,6 +101,12 @@ namespace Library.Controllers
             return View(model);
         }
 
+        public IActionResult CheckIn(int id)
+        {
+            _checkouts.CheckInItem(id);
+            return RedirectToAction("Detail", new {id= id });
+        }
+
 
         public IActionResult Hold(int id)
         {
@@ -112,7 +118,7 @@ namespace Library.Controllers
                 Title = asset.Title,
                 AssetId = id,
                 ImageUrl = asset.ImageUrl,
-                IsChecked = _checkouts.IsCheckedOut(id),
+                //IsChecked = _checkouts.IsCheckedOut(id),
                 HoldCount = _checkouts.GetCurrentHolds(id).Count()
             };
 
@@ -123,14 +129,14 @@ namespace Library.Controllers
         [HttpPost]
         public IActionResult PlaceCheckout(int assetId, int libraryCardId)
         {
-            _checkouts.CheckInItem(assetId, libraryCardId);
+            _checkouts.CheckoutItem(assetId, libraryCardId);
             return RedirectToAction("Detail", new {id = assetId });
         }
 
         [HttpPost]
         public IActionResult PlaceHold(int assetId, int libraryCardId)
         {
-            _checkouts.CheckInItem(assetId, libraryCardId);
+            _checkouts.PlaceHold(assetId, libraryCardId);
             return RedirectToAction("Detail", new { id = assetId });
         }
 
