@@ -16,6 +16,7 @@ namespace Library.Models.Patron
         public DateTime MemberSince { get; set; }
         public string HomeLibraryBranch { get; set; }
         public decimal OverdueFees { get; set; }
+        public string Telephone { get; set; }
         public IEnumerable<Checkout> AssetsCheckedOut { get; set; }
         public IEnumerable<CheckoutHistory> CheckoutHistory { get; set; }
         public IEnumerable<Hold> Holds { get; set; }
