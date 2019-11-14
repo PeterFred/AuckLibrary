@@ -133,3 +133,4 @@ C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\bin\Debug\ne
 C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\netcoreapp3.0\Razor\Views\Catalog\Checkout.cshtml.g.cs
 C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\netcoreapp3.0\Razor\Views\Catalog\Hold.cshtml.g.cs
 C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\netcoreapp3.0\Razor\Views\Patron\Index.cshtml.g.cs
+C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\netcoreapp3.0\Razor\Views\Patron\Detail.cshtml.g.cs
