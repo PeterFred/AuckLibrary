@@ -1,18 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using LibraryData;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Library.Controllers
 {
     public class PatronController: Controller
     {
+        private IPatron _patron;
 
-
-        public PatronController()
+        public PatronController(IPatron patron)
         {
-
+            _patron = patron;
         }
     }
 }
