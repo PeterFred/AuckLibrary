@@ -39,9 +39,9 @@ namespace Library.Controllers
             return View(model);
         }
 
-        public IActionResult Detail(int patronId)
+        public IActionResult Detail(int id)
         {
-            var patron = _patron.Get(patronId);
+            var patron = _patron.Get(id);
 
             var model = new PatronDetailModel
             {
@@ -53,8 +53,8 @@ namespace Library.Controllers
                 OverdueFees = patron.LibraryCard.Fees,
                 LibraryCardId = patron.LibraryCard.Id,
                 Telephone = patron.TelephoneNumber,
-                AssetsCheckedOut = _patron.GetCheckouts(patronId).ToList() ?? new List<Checkout>(),
-                CheckoutHistory = _patron.GetCheckoutHistory(patronId)
+                AssetsCheckedOut = _patron.GetCheckouts(id).ToList() ?? new List<Checkout>(),
+                CheckoutHistory = _patron.GetCheckoutHistory(id)
 
             };
             return View(model);
