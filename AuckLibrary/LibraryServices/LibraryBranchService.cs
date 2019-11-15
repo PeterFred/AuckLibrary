@@ -74,14 +74,14 @@ namespace LibraryServices
 
         public bool IsBranchOpen(int branchId)
         {
-            return true;
-            //int currentTimeHour = DateTime.Now.Hour;
-            //int currentDayOfWeek = (int)DateTime.Now.DayOfWeek + 1; //DB is indexed 1-7, not 0-6, hence +1
-            //var hours = _context.BranchHours.Where(h => h.Branch.Id == branchId);
+            //return true;
+            int currentTimeHour = DateTime.Now.Hour;
+            int currentDayOfWeek = (int)DateTime.Now.DayOfWeek + 1; //DB is indexed 1-7, not 0-6, hence +1
+            var hours = _context.BranchHours.Where(h => h.Branch.Id == branchId);
 
-            //BranchHours daysHours = hours.FirstOrDefault(h => h.DayOfWeek == currentDayOfWeek);
+            BranchHours daysHours = hours.FirstOrDefault(h => h.DayOfWeek == currentDayOfWeek);
 
-            //return  currentTimeHour < daysHours.CloseTime && currentTimeHour > daysHours.OpenTime;
+            return currentTimeHour < daysHours.CloseTime && currentTimeHour > daysHours.OpenTime;
         }
     }
 }

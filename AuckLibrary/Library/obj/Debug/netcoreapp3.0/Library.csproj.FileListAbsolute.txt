@@ -135,3 +135,4 @@ C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\ne
 C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\netcoreapp3.0\Razor\Views\Patron\Index.cshtml.g.cs
 C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\netcoreapp3.0\Razor\Views\Patron\Detail.cshtml.g.cs
 C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\netcoreapp3.0\Razor\Views\Branch\Index.cshtml.g.cs
+C:\Users\peter.LINCOLN\source\repos\AuckLibrary\AuckLibrary\Library\obj\Debug\netcoreapp3.0\Razor\Views\Branch\Detail.cshtml.g.cs

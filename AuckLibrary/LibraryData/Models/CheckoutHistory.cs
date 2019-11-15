@@ -19,5 +19,7 @@ namespace LibraryData.Models
 
         //'?' means explicitly nullable
         public DateTime? CheckedIn { get; set; }
+
+        public Patron Patron { get; set; }
     }
 }

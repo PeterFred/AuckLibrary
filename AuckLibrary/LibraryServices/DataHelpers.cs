@@ -29,12 +29,13 @@ namespace LibraryServices
 
         public static string HumanizeDay(int number)
         {
-            return Enum.GetName(typeof(DayOfWeek), number);
+            //Subtract 1 to line up with db indexing
+            return Enum.GetName(typeof(DayOfWeek), number-1);
         }
 
         public static string HumanizeTime(int time)
         {
-            return TimeSpan.FromHours(time).ToString("hh':'mm'");
+            return TimeSpan.FromHours(time).ToString("hh':'mm");
         }
 
 

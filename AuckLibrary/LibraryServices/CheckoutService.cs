@@ -184,13 +184,13 @@ namespace LibraryServices
                 .FirstOrDefault();
         }
 
-        public void MarkFound(int assetId)
+        public void MarkFound(int id)
         {
             DateTime now = DateTime.Now;
 
-            UpdateAssetStatus(assetId, "Available");
-            RemoveExistingCheckouts(assetId);
-            CloseExistingCheckoutHistory(assetId, now);  
+            UpdateAssetStatus(id, "Available");
+            RemoveExistingCheckouts(id);
+            CloseExistingCheckoutHistory(id, now);  
             _context.SaveChanges();
         }
 
@@ -248,13 +248,13 @@ namespace LibraryServices
 
         }
 
-        public void PlaceHold(int assetId, int libraryCardId)
+        public void PlaceHold(int id, int libraryCardId)
         {
             DateTime now = DateTime.Now;
 
             var asset = _context.LibraryAssets
                 .Include(a => a.Status)
-                .FirstOrDefault(a => a.Id == assetId);
+                .FirstOrDefault(a => a.Id == id);
 
             var card = _context.LibraryCards
                 .FirstOrDefault(card => card.Id == libraryCardId);
