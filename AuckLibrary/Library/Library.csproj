@@ -28,8 +28,4 @@
     <ProjectReference Include="..\LibraryServices\LibraryServices.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Branch\" />
-  </ItemGroup>
-
 </Project>

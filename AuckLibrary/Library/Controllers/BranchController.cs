@@ -16,21 +16,21 @@ namespace Library.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<BranchDetailModel> branches = _branch.GetAll().Select(b => new BranchDetailModel
+            var branches = _branch.GetAll().Select(b => new BranchDetailModel
             {
                 Id = b.Id,
-                Address = b.Address,
                 Name = b.Name,
+                NumberOfAssets = _branch.GetAssetCount(b.Id),
+                NumberOfPatrons = _branch.GetPatronCount(b.Id),
+                IsOpen = _branch.IsBranchOpen(b.Id),              
+                Address = b.Address,
                 OpenDate = b.OpenDate.ToString(),
                 Telephone = b.Telephone,
                 Description = b.Description,
-                ImageUrl = b.ImageUrl,
-                IsOpen = _branch.isBranchOpen(b.Id),
-                NumberOfPatrons = _branch.GetPatrons(b.Id).Count(), //Consider refactoring GetPatrons to just a count method
-                NumberOfAssets = _branch.GetAssets(b.Id).Count()
-            });
+                ImageUrl = b.ImageUrl
+            }).ToList();
 
-            BranchIndexModel model = new BranchIndexModel()
+            var model = new BranchIndexModel()
             {
                 Branches = branches
             };

@@ -29,6 +29,7 @@ namespace Library
             services.AddScoped<ILibraryAsset, LibraryAssetService>();
             services.AddScoped<ICheckout, CheckoutService>();
             services.AddScoped<IPatron, PatronService>();
+            services.AddScoped<ILibraryBranch, LibraryBranchService>();
             
             //Connects the connection string for the sql db
             // > pulled from LibraryContext, in turn pulled from appsettings.json

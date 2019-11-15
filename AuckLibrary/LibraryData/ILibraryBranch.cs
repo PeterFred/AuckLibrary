@@ -11,7 +11,7 @@ namespace LibraryData
         LibraryBranch Get(int branchId);
         IEnumerable<string> GetBranchHours(int branchId);
         void Add(LibraryBranch newBranch);
-        bool isBranchOpen(int branchId);
+        bool IsBranchOpen(int branchId);
         int GetAssetCount(int branchId);
         int GetPatronCount(int branchId);
         decimal GetAssetsValue(int id);
