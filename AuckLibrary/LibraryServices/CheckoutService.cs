@@ -146,17 +146,38 @@ namespace LibraryServices
         public string GetCurrentHoldPatronName(int holdId)
         {
             Hold hold = _context.Holds
-                .Include(h=>h.LibraryAsset)
+                .Include(h => h.LibraryAsset)
                 .Include(h => h.LibraryCard)
-                .FirstOrDefault(h=>h.Id==holdId);
+                .FirstOrDefault(h => h.Id == holdId);
             var cardId = hold?.LibraryCard.Id;
 
+            return PatronName(cardId);
+        }
+
+
+
+        private string PatronName(int? cardId)
+        {
             Patron patron = _context.Patrons
-                .Include(p => p.LibraryCard)
-                .FirstOrDefault(p => p.LibraryCard.Id == cardId);
+                            .Include(p => p.LibraryCard)
+                            .FirstOrDefault(p => p.LibraryCard.Id == cardId);
 
             return patron?.FirstName + " " + patron?.LastName;
         }
+
+        public string GetCurrentCheckedOutPatronName(int checkId)
+        {
+            CheckoutHistory check = _context.CheckoutHistories
+                .Include(co => co.LibraryAsset)
+                .Include(co => co.LibraryCard)
+                .FirstOrDefault(co => co.Id == checkId);
+            var cardId = check?.LibraryCard.Id;
+
+            return PatronName(cardId);
+        }
+
+
+
 
         public DateTime GetCurrentHoldPlaced(int holdId)
         {
@@ -165,6 +186,22 @@ namespace LibraryServices
                  .Include(h => h.LibraryCard)
                  .FirstOrDefault(h => h.Id == holdId)
                  .HoldPlaced;
+        }
+
+        public DateTime CheckedOut(int id)
+        {
+            return _context.CheckoutHistories
+                //.Include(co => co.CheckedOut)
+                .FirstOrDefault(co => co.Id == co.Id)
+                .CheckedOut;
+        }
+
+        public DateTime? CheckedIn(int id)
+        {
+            return _context.CheckoutHistories
+                //.Include(co => co.CheckedOut)
+                .FirstOrDefault(co => co.Id == co.Id)
+                .CheckedIn;
         }
 
         public IEnumerable<Hold> GetCurrentHolds(int id)
@@ -300,6 +337,18 @@ namespace LibraryServices
                 .Include(co => co.LibraryAsset)
                 .Include(co => co.LibraryCard)
                 .FirstOrDefault(co => co.LibraryAsset.Id == assetId);
+        }
+
+
+
+        public LibraryAsset LibraryAsset(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public LibraryCard LibraryCard(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

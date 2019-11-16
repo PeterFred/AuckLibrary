@@ -1,14 +1,13 @@
-﻿using System;
+﻿using LibraryData.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace LibraryData.Models
+namespace Library.Models.Catalog
 {
-    /*
-     * LibraryData maps directyl to the db and should only match the DB
-     */
-    public class CheckoutHistory
+    public class AssetCheckoutHistoryModel
     {
         public int Id { get; set; }
         [Required]
@@ -22,5 +21,9 @@ namespace LibraryData.Models
 
         //'?' means explicitly nullable
         public DateTime? CheckedIn { get; set; }
+
+        public string PatronName { get; set; }
+
+        public int LibraryCardId { get; set; }
     }
 }

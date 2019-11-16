@@ -15,9 +15,15 @@ namespace LibraryData
         Checkout GetById(int checkoutId);
         Checkout GetLatestCheckout(int assetId);
         string GetCurrentHoldPatronName(int id);
+        string GetCurrentCheckedOutPatronName(int checkId);
         string GetCurrentCheckoutPatron(int assetId);
         DateTime GetCurrentHoldPlaced(int id);
         bool IsCheckedOut(int id);
+        
+        DateTime CheckedOut(int id);
+        DateTime? CheckedIn(int id);
+        LibraryAsset LibraryAsset(int id);
+        LibraryCard LibraryCard(int id);
 
         void CheckoutItem(int assetId, int libraryCardId);
         void CheckInItem(int assetId);

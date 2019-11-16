@@ -1,10 +1,10 @@
-﻿using LibraryData;
+﻿using LibraryData.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using Library.Models.Catalog;
-using LibraryData.Models;
 using System.Collections.Generic;
 using Library.Models.CheckoutModels;
+using LibraryData;
 
 namespace Library.Controllers
 {
@@ -56,6 +56,17 @@ namespace Library.Controllers
                     PatronName = _checkouts.GetCurrentHoldPatronName(a.Id)
                 });
 
+            var currentCheckoutHistory = _checkouts.GetCheckoutHistory(id)
+                .Select(a => new AssetCheckoutHistoryModel
+                {
+                    Id = id,
+                    PatronName = _checkouts.GetCurrentCheckedOutPatronName(a.Id),
+                    CheckedOut = _checkouts.CheckedOut(a.Id),
+                    CheckedIn = _checkouts.CheckedIn(a.Id),
+                    LibraryCardId = a.LibraryCard.Id
+
+                }) ;
+
             //Creates the ViewModel
             //Populate the AssetDetail model with:
             // LibraryAsset properties OR
@@ -76,7 +87,8 @@ namespace Library.Controllers
                 CheckoutHistory = _checkouts.GetCheckoutHistory(id),
                 LatestCheckOut = _checkouts.GetLatestCheckout(id),
                 PatronName = _checkouts.GetCurrentCheckoutPatron(id),
-                CurrentHolds = currentHolds
+                CurrentHolds = currentHolds,
+                CurrentCheckoutHistory = currentCheckoutHistory
 
             };
 
@@ -94,7 +106,8 @@ namespace Library.Controllers
                 Title = asset.Title,
                 AssetId = id,
                 ImageUrl = asset.ImageUrl,
-                IsChecked = _checkouts.IsCheckedOut(id)
+                IsChecked = _checkouts.IsCheckedOut(id),
+                PatronName = _checkouts.GetCurrentHoldPatronName(id)
 
             };
 

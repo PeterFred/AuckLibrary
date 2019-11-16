@@ -13,5 +13,6 @@ namespace Library.Models.CheckoutModels
         public string ImageUrl { get; set; }
         public int HoldCount { get; set; }
         public bool IsChecked { get; set; }
+        public string PatronName { get; set; }
     }
 }

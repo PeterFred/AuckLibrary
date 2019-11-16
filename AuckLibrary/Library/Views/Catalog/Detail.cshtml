@@ -92,20 +92,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var checkout in @Model.CheckoutHistory)
+                    @foreach (AssetCheckoutHistoryModel checkout in @Model.CurrentCheckoutHistory)
                     {
                         <tr>
                             <td>
                                 @checkout.CheckedOut
                             </td>
                             <td>
-                                @* FILL IN PATRON NAME*@
+                                @checkout.PatronName
                             </td>
                             <td>
                                 @checkout.CheckedIn
                             </td>
                             <td>
-                                @checkout.LibraryCard.Id
+                                @checkout.LibraryCardId
+                                
                             </td>
                         </tr>
                     }
@@ -122,7 +123,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var hold in @Model.CurrentHolds)
+                    @foreach (AssetHoldModel hold in @Model.CurrentHolds)
                     {
                         <tr>
                             <td>

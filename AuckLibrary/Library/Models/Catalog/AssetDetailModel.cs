@@ -23,11 +23,13 @@ namespace Library.Models.Catalog
         public string ISBN { get; set; }
         public IEnumerable<CheckoutHistory> CheckoutHistory { get; set; }
         public IEnumerable<AssetHoldModel> CurrentHolds { get; set; }
+        public IEnumerable<AssetCheckoutHistoryModel> CurrentCheckoutHistory { get; set; }
     }
 
-    public class AssetHoldModel
-    {
-        public string PatronName { get; set; }
-        public string HoldPlaced { get; set; }
-    }
+    //public class AssetHoldModel
+    //{
+    //    public string PatronName { get; set; }
+    //    public string HoldPlaced { get; set; }
+
+    //}
 }
